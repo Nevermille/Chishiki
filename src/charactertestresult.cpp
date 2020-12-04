@@ -1,4 +1,4 @@
-#include "charactertestresult.h"
+#include "include/charactertestresult.h"
 
 CharacterTestResult::CharacterTestResult()
 {

@@ -1,10 +1,9 @@
-#include "mainwindow.h"
+#include "include/mainwindow.h"
+#include "include/about.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 }
@@ -28,4 +27,9 @@ void MainWindow::on_kanatestbackbutton_clicked()
 void MainWindow::on_actionAbout_Qt_triggered()
 {
     QMessageBox::aboutQt(ui->centralwidget);
+}
+
+void MainWindow::on_actionAbout_Chishiki_triggered()
+{
+    About().exec();
 }

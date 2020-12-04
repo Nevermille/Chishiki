@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/main">
+        <file>images/icons/test.svg</file>
+        <file>images/icons/learn.svg</file>
+        <file>images/icons/library.svg</file>
+        <file>images/icons/testresults.svg</file>
+    </qresource>
+</RCC>
