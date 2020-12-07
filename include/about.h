@@ -15,10 +15,10 @@ class About: public QDialog
         About(QWidget *parent = nullptr);
         ~About();
 
-private slots:
+    private slots:
         void on_pushButton_clicked();
 
-private:
+    private:
         Ui::About *ui;
 };
 

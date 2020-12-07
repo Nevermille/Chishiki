@@ -40,10 +40,22 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>380</width>
-        <height>226</height>
+        <width>499</width>
+        <height>367</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Chishiki&lt;/span&gt;&lt;/p&gt;&lt;p&gt;2020 Liánhuā Studio&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Author:&lt;/span&gt; Camille Nevermind&lt;/p&gt;&lt;p&gt;This software and its code are distributed under the &lt;a href=&quot;https://www.gnu.org/licenses/lgpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GPL-3.0 license&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Open Source&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;Twemoji&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Copyright 2020 Twitter, Inc and other contributors&lt;br/&gt;Code licensed under the &lt;/span&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;MIT license&lt;br/&gt;&lt;/span&gt;&lt;/a&gt;Graphics licensed under &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;CC-BY 4.0&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline;&quot;&gt;Kanji Stroke Order Font&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Copyright (C) 2004-2020 Ulrich Apel, the AAAA project and the Wadoku project&lt;br/&gt;All rights reserved.&lt;br/&gt;Font distributed under the &lt;a href=&quot;https://opensource.org/licenses/BSD-3-Clause&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;BSD 3 Clause license&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;頑張れ！&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>

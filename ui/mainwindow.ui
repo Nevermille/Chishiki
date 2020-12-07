@@ -917,6 +917,25 @@
     <addaction name="actionAbout_Chishiki"/>
     <addaction name="actionAbout_Qt"/>
    </widget>
+   <widget class="QMenu" name="menuDebug">
+    <property name="title">
+     <string>Debug</string>
+    </property>
+    <widget class="QMenu" name="menuGenerate_PDF">
+     <property name="title">
+      <string>Generate PDF</string>
+     </property>
+     <widget class="QMenu" name="menuLarge">
+      <property name="title">
+       <string>Large</string>
+      </property>
+      <addaction name="actionBlank"/>
+     </widget>
+     <addaction name="menuLarge"/>
+    </widget>
+    <addaction name="menuGenerate_PDF"/>
+   </widget>
+   <addaction name="menuDebug"/>
    <addaction name="menuHelp"/>
   </widget>
   <action name="actionAbout_Chishiki">
@@ -927,6 +946,11 @@
   <action name="actionAbout_Qt">
    <property name="text">
     <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionBlank">
+   <property name="text">
+    <string>Blank</string>
    </property>
   </action>
  </widget>

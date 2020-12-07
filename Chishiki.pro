@@ -6,29 +6,36 @@ CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
     src/about.cpp \
     src/character.cpp \
     src/charactertestresult.cpp \
+    src/documentwriter.cpp \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/path.cpp
 
 HEADERS += \
     include/about.h \
     include/character.h \
     include/characterTranslation.h \
     include/charactertestresult.h \
+    include/documentwriter.h \
     include/mainwindow.h \
+    include/path.h
 
 FORMS += \
     ui/about.ui \
+    ui/home.ui \
     ui/mainwindow.ui
 
 TRANSLATIONS += \
     locale/Chishiki_en_US.ts \
     locale/Chishiki_fr_FR.ts
+
+database.
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -41,4 +48,6 @@ DISTFILES += \
     README.md
 
 RESOURCES += \
+    resource/databases.qrc \
+    resource/fonts.qrc \
     resource/icons.qrc

@@ -22,6 +22,8 @@ class MainWindow : public QMainWindow
 
         void on_actionAbout_Chishiki_triggered();
 
+        void on_actionBlank_triggered();
+
 private:
         Ui::MainWindow *ui;
 };

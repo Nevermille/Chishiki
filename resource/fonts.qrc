@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/japanese">
+        <file>fonts/KSO.ttf</file>
+    </qresource>
+</RCC>
