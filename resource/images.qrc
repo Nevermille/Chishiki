@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/main">
+        <file>images/icons/test.svg</file>
+        <file>images/icons/learn.svg</file>
+        <file>images/icons/library.svg</file>
+        <file>images/icons/testresults.svg</file>
+    </qresource>
+    <qresource prefix="/app">
+        <file>images/app/Chishiki16.png</file>
+        <file>images/app/Chishiki32.png</file>
+        <file>images/app/Chishiki64.png</file>
+        <file>images/app/Chishiki128.png</file>
+        <file>images/app/Chishiki256.png</file>
+        <file>images/app/Chishiki512.png</file>
+        <file>images/app/Chishiki1024.png</file>
+    </qresource>
+    <qresource prefix="/splash">
+        <file>images/splash/winter.png</file>
+    </qresource>
+</RCC>

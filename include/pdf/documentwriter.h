@@ -23,10 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #include <QJsonArray>
 #include <QJsonValue>
 #include <QFile>
-#include "include/character.h"
-
-#define CSK_PPI 300.0
-#define CSK_PPM CSK_PPI/25.4
+#include "include/db/character.h"
+#include "include/pdf/pdflayout.h"
 
 class DocumentWriter
 {
@@ -47,12 +45,10 @@ class DocumentWriter
         QPdfWriter* pdf;
         QPainter* painter;
         QList<Character>* charList;
-        QList<QLine>* outlines;
         QFile* file;
+        PdfLayout* layout;
         bool reading;
         bool writing;
-        void setTemplate(const QJsonObject &tmpl);
-        void setOutlines(const QJsonArray &lines);
         void drawBack(void);
 };
 

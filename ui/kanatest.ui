@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KanaTest</class>
+ <widget class="QWidget" name="KanaTest">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>430</width>
+    <height>547</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QStackedWidget" name="kanastack">
+     <widget class="QWidget" name="kanachoise">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Kana Test</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Hiragana</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupHAWo_2">
+              <property name="title">
+               <string notr="true">あ〜を</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_7">
+               <property name="verticalSpacing">
+                <number>0</number>
+               </property>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="checkBoxHN_2">
+                 <property name="text">
+                  <string notr="true">な〜の</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBoxHS_2">
+                 <property name="text">
+                  <string notr="true">さ〜そ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="checkBoxHT_2">
+                 <property name="text">
+                  <string notr="true">た〜と</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="checkBoxHK_2">
+                 <property name="text">
+                  <string notr="true">か〜こ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="checkBoxH0_2">
+                 <property name="text">
+                  <string notr="true">あ〜お</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="checkBoxHH_2">
+                 <property name="text">
+                  <string notr="true">は〜ほ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="checkBoxHM_2">
+                 <property name="text">
+                  <string notr="true">ま〜も</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="checkBoxHY_2">
+                 <property name="text">
+                  <string notr="true">や〜よ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QCheckBox" name="checkBoxHW_2">
+                 <property name="text">
+                  <string notr="true">わ〜を</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="checkBoxHR_2">
+                 <property name="text">
+                  <string notr="true">ら〜ろ</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupHGaPo_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>が〜ぽ</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_8">
+               <property name="verticalSpacing">
+                <number>0</number>
+               </property>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBoxHD_2">
+                 <property name="text">
+                  <string notr="true">だ〜ど</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="checkBoxHG_2">
+                 <property name="text">
+                  <string notr="true">が〜ご</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="checkBoxHZ_2">
+                 <property name="text">
+                  <string notr="true">ざ〜ぞ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="checkBoxHB_2">
+                 <property name="text">
+                  <string notr="true">ば〜ぼ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="checkBoxHP_2">
+                 <property name="text">
+                  <string notr="true">ぱ〜ぽ</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupHKyRy_2">
+              <property name="title">
+               <string>きゃ〜りょ</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_9">
+               <property name="sizeConstraint">
+                <enum>QLayout::SetDefaultConstraint</enum>
+               </property>
+               <property name="verticalSpacing">
+                <number>0</number>
+               </property>
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="checkBoxHJ_2">
+                 <property name="text">
+                  <string notr="true">じゃ〜じょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="checkBoxHHy_2">
+                 <property name="text">
+                  <string notr="true">ひゃ〜ひょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="checkBoxHKy_2">
+                 <property name="text">
+                  <string notr="true">きゃ〜きょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="checkBoxHGy_2">
+                 <property name="text">
+                  <string notr="true">ぎゃ〜ぎょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBoxHSh_2">
+                 <property name="text">
+                  <string notr="true">しゃ〜しょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="checkBoxHCh_2">
+                 <property name="text">
+                  <string notr="true">ちゃ〜ちょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QCheckBox" name="checkBoxHNy_2">
+                 <property name="text">
+                  <string notr="true">にゃ〜にょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="checkBoxHBy_2">
+                 <property name="text">
+                  <string notr="true">びゃ〜びょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="checkBoxHPy_2">
+                 <property name="text">
+                  <string notr="true">ぴゃ〜ぴょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="checkBoxHMy_2">
+                 <property name="text">
+                  <string notr="true">みゃ〜みょ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QCheckBox" name="checkBoxHRy_2">
+                 <property name="text">
+                  <string notr="true">りゃ〜りょ</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Katakana</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupKAWo">
+              <property name="title">
+               <string>ア〜ヲ</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <property name="horizontalSpacing">
+                <number>6</number>
+               </property>
+               <property name="verticalSpacing">
+                <number>0</number>
+               </property>
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="checkBoxKT">
+                 <property name="text">
+                  <string notr="true">タ〜ト</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBoxKS">
+                 <property name="text">
+                  <string notr="true">サ〜ソ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="checkBoxKK">
+                 <property name="text">
+                  <string notr="true">カ〜コ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="checkBoxK0">
+                 <property name="text">
+                  <string notr="true">ア〜オ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="checkBoxKN">
+                 <property name="text">
+                  <string notr="true">ナ〜ノ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="checkBoxKM">
+                 <property name="text">
+                  <string notr="true">マ〜モ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="checkBoxKH">
+                 <property name="text">
+                  <string notr="true">ハ〜ホ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="checkBoxKY">
+                 <property name="text">
+                  <string notr="true">ヤ〜ヨ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="checkBoxKR">
+                 <property name="text">
+                  <string notr="true">ラ〜ロ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QCheckBox" name="checkBoxKW">
+                 <property name="text">
+                  <string notr="true">ワ〜ヲ</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupKGaPo">
+              <property name="title">
+               <string>ガ〜ポ</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <property name="verticalSpacing">
+                <number>0</number>
+               </property>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBoxKD">
+                 <property name="text">
+                  <string notr="true">ダ〜ド</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="checkBoxKZ">
+                 <property name="text">
+                  <string notr="true">ザ〜ゾ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="checkBoxKG">
+                 <property name="text">
+                  <string notr="true">ガ〜ゴ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="checkBoxKB">
+                 <property name="text">
+                  <string notr="true">バ〜ボ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="checkBoxKP">
+                 <property name="text">
+                  <string notr="true">パ〜ポ</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBoxKKyRy">
+              <property name="title">
+               <string>キャ〜リョ</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_6">
+               <property name="verticalSpacing">
+                <number>0</number>
+               </property>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="checkBoxKGy">
+                 <property name="text">
+                  <string notr="true">ギャ〜ギョ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="checkBoxKCh">
+                 <property name="text">
+                  <string notr="true">チャ〜チョ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="checkBoxKJ">
+                 <property name="text">
+                  <string notr="true">ジャ〜ジョ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="checkBoxKKy">
+                 <property name="text">
+                  <string notr="true">キャ〜キョ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBoxKSh">
+                 <property name="text">
+                  <string notr="true">シャ〜ショ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QCheckBox" name="checkBoxKNy">
+                 <property name="text">
+                  <string notr="true">ニャ〜ニョ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="checkBoxKBy">
+                 <property name="text">
+                  <string notr="true">ビャ〜ビョ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="checkBoxKHy">
+                 <property name="text">
+                  <string notr="true">ヒャ〜ヒョ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="checkBoxKPy">
+                 <property name="text">
+                  <string notr="true">ピャ〜ピョ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="checkBoxKMy">
+                 <property name="text">
+                  <string notr="true">ミャ〜ミョ</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QCheckBox" name="checkBoxKRy">
+                 <property name="text">
+                  <string notr="true">リャ〜リョ</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <spacer name="horizontalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="kanatestbackbutton">
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="kanateststartbutton">
+           <property name="text">
+            <string>Start</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_2"/>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+ <slots>
+  <signal>backButtonClicked()</signal>
+ </slots>
+</ui>

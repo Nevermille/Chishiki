@@ -16,13 +16,13 @@ class MainWindow : public QMainWindow
         ~MainWindow();
 
     private slots:
-        void on_kanatestsection_clicked();
-        void on_kanatestbackbutton_clicked();
         void on_actionAbout_Qt_triggered();
-
         void on_actionAbout_Chishiki_triggered();
-
         void on_actionBlank_triggered();
+
+        void on_home_kanaTestClicked();
+
+        void on_kanatest_backButtonClicked();
 
 private:
         Ui::MainWindow *ui;

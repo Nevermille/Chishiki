@@ -1,6 +1,6 @@
-#include "include/mainwindow.h"
-#include "include/about.h"
-#include "include/documentwriter.h"
+#include "include/ui/mainwindow.h"
+#include "include/ui/about.h"
+#include "include/pdf/documentwriter.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QFileDialog>
@@ -13,17 +13,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::on_kanatestsection_clicked(void)
-{
-    ui->mainwidget->setCurrentWidget(ui->kanatest);
-}
-
-
-void MainWindow::on_kanatestbackbutton_clicked(void)
-{
-    ui->mainwidget->setCurrentWidget(ui->mainpage);
 }
 
 void MainWindow::on_actionAbout_Qt_triggered(void)
@@ -57,4 +46,14 @@ void MainWindow::on_actionBlank_triggered(void)
     {
         QMessageBox::critical(this, tr("Error"), e);
     }
+}
+
+void MainWindow::on_home_kanaTestClicked()
+{
+    ui->mainwidget->setCurrentWidget(ui->kanatest);
+}
+
+void MainWindow::on_kanatest_backButtonClicked()
+{
+    ui->mainwidget->setCurrentWidget(ui->home);
 }

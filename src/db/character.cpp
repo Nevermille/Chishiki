@@ -1,5 +1,5 @@
 #include <QCoreApplication>
-#include "include/character.h"
+#include "include/db/character.h"
 
 Character::Character(void)
 {
