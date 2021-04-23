@@ -1,6 +1,5 @@
 #include "include/ui/mainwindow.h"
 #include "include/ui/about.h"
-#include "include/pdf/documentwriter.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QFileDialog>
@@ -27,25 +26,7 @@ void MainWindow::on_actionAbout_Chishiki_triggered(void)
 
 void MainWindow::on_actionBlank_triggered(void)
 {
-    QString file = QFileDialog::getSaveFileName(this, tr("Save Debug PDF..."));
 
-    if (file == "")
-    {
-        return;
-    }
-
-    DocumentWriter doc(file);
-
-    try
-    {
-        doc.open();
-        doc.loadTemplate("test-large");
-        doc.generate();
-    }
-    catch (const char* e)
-    {
-        QMessageBox::critical(this, tr("Error"), e);
-    }
 }
 
 void MainWindow::on_home_kanaTestClicked()

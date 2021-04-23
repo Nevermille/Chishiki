@@ -3,39 +3,117 @@
 
 Character::Character(void)
 {
-
+    id = -1;
+    character = "";
+    kunyomi = "";
+    onyomi = "";
+    type = -1;
+    strokes = -1;
 }
 
-QString* Character::getId(void)
+bool Character::operator==(const Character &other)
+{
+    if (id != other.id
+            || character != other.character
+            || onyomi != other.onyomi
+            || kunyomi != other.kunyomi
+            || type != other.type
+            || strokes != other.strokes)
+    {
+        return false;
+    }
+
+    return true;
+}
+
+bool Character::operator!=(const Character &other)
+{
+    if (id == other.id
+            && character == other.character
+            && onyomi == other.onyomi
+            && kunyomi == other.kunyomi
+            && type == other.type
+            && strokes == other.strokes)
+    {
+        return false;
+    }
+
+    return true;
+}
+
+bool Character::isNull(void)
+{
+    if (id == -1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+int Character::getId(void)
 {
     return id;
 }
 
-/**
- * @brief Character::getCharacter
- * @return The character
- */
-QString* Character::getCharacter(void)
+QString Character::getCharacter(void)
 {
     return character;
 }
 
-QString* Character::getOnyomi(void)
+QString Character::getOnyomi(void)
 {
     return onyomi;
 }
 
-QString* Character::getKunyomi(void)
+QString Character::getKunyomi(void)
 {
     return kunyomi;
 }
 
-QList<CharacterTestResult>* Character::getResults(void)
+QString Character::getMeaning(void)
 {
-    return results;
+    return "TODO";
 }
 
-QString* Character::getMeaning(void)
+int Character::getType(void)
 {
-    return new QString(tr(id->toStdString().c_str(), "character"));
+    return type;
+}
+
+int Character::getStrokes(void)
+{
+    return strokes;
+}
+
+void Character::setId(int _id)
+{
+    id = _id;
+}
+
+void Character::setCharacter(QString _character)
+{
+    character = _character;
+}
+
+void Character::setKunyomi(QString _kunyomi)
+{
+    kunyomi = _kunyomi;
+}
+
+void Character::setOnyomi(QString _onyomi)
+{
+    onyomi = _onyomi;
+}
+
+void Character::setType(int _type)
+{
+    type = _type;
+}
+
+void Character::setStrokes(int _strokes)
+{
+    strokes = _strokes;
 }

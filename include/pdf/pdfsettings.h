@@ -1,7 +1,0 @@
-#ifndef PDFSETTINGS_H
-#define PDFSETTINGS_H
-
-#define CSK_PPI 300.0
-#define CSK_PPM CSK_PPI/25.4
-
-#endif // PDFSETTINGS_H

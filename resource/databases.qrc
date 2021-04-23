@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/db">
-        <file>database/characters.json</file>
-        <file>database/templates.json</file>
-    </qresource>
-</RCC>

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>database/character.json</file>
+        <file>database/charset.json</file>
+    </qresource>
+</RCC>

@@ -1,8 +1,8 @@
-QT       += core gui svg
+QT       += core gui svg sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++11 sdk_no_version_check
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -10,13 +10,10 @@ DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs depr
 
 SOURCES += \
     src/db/character.cpp \
-    src/db/charactertestresult.cpp \
-    src/db/database.cpp \
-    src/db/path.cpp \
+    src/db/databasemanager.cpp \
+    src/db/databaseupdater.cpp \
+    src/etc/path.cpp \
     src/main.cpp \
-    src/pdf/documentwriter.cpp \
-    src/pdf/pdfcharacterzone.cpp \
-    src/pdf/pdflayout.cpp \
     src/ui/about.cpp \
     src/ui/home.cpp \
     src/ui/kanatest.cpp \
@@ -24,14 +21,11 @@ SOURCES += \
 
 HEADERS += \
     include/db/character.h \
-    include/db/charactertestresult.h \
-    include/db/database.h \
-    include/db/path.h \
+    include/db/databasemanager.h \
+    include/db/databaseupdater.h \
     include/etc/characterTranslation.h \
-    include/pdf/documentwriter.h \
-    include/pdf/pdfcharacterzone.h \
-    include/pdf/pdflayout.h \
-    include/pdf/pdfsettings.h \
+    include/etc/chishiki.h \
+    include/etc/path.h \
     include/ui/about.h \
     include/ui/home.h \
     include/ui/kanatest.h \
@@ -61,6 +55,4 @@ DISTFILES += \
     README.md
 
 RESOURCES += \
-    resource/databases.qrc \
-    resource/fonts.qrc \
-    resource/images.qrc
+    resource/chishiki.qrc
