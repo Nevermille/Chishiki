@@ -80,7 +80,164 @@ void DatabaseManager::insertCharacter(Character character)
 
     if (!sql.exec())
     {
-        qWarning() << "Error during character insert";
+        throw QString("Error during character insert");
+    }
+}
+
+void DatabaseManager::updateCharacter(Character character)
+{
+    QSqlQuery sql;
+
+    if (character.isNull())
+    {
+        throw QString("Character is null");
+    }
+
+    qDebug() << "Updating character" << character.getId();
+
+    sql.prepare("UPDATE 'character' SET 'char'=?, onyomi=?, kunyomi=?, 'type'=?, strokes=? WHERE id=?");
+    sql.addBindValue(character.getCharacter());
+    sql.addBindValue(character.getOnyomi());
+    sql.addBindValue(character.getKunyomi());
+    sql.addBindValue(character.getType());
+    sql.addBindValue(character.getStrokes());
+    sql.addBindValue(character.getId());
+
+    if (!sql.exec())
+    {
+        throw QString("Error during character update");
+    }
+}
+
+void DatabaseManager::insertCharset(Charset charset)
+{
+    QSqlQuery sql;
+
+    if (charset.isNull())
+    {
+        throw QString("Charset is null");
+    }
+
+    qDebug() << "Inserting a charset";
+
+    sql.prepare("INSERT INTO charset(id, name) VALUES(?, ?)");
+    sql.addBindValue(charset.getId());
+    sql.addBindValue(charset.getName());
+
+    if (!sql.exec())
+    {
+        throw QString("Error during charset insert");
+    }
+}
+
+void DatabaseManager::updateCharset(Charset charset)
+{
+    QSqlQuery sql;
+
+    if (charset.isNull())
+    {
+        throw QString("Charset is null");
+    }
+
+    qDebug() << "Updating charset " << charset.getId();
+
+    sql.prepare("UPDATE charset SET name=? WHERE id=?");
+    sql.addBindValue(charset.getName());
+    sql.addBindValue(charset.getId());
+
+    if (!sql.exec())
+    {
+        throw QString("Error during charset update");
+    }
+}
+
+Charset DatabaseManager::getCharset(int id)
+{
+    QSqlQuery sql;
+
+    qDebug() << "Searching charset number" << id;
+
+    sql.prepare("SELECT * FROM 'charset' c WHERE id = ?");
+    sql.addBindValue(id);
+
+    if (!sql.exec())
+    {
+        qWarning() << "Error during database query";
+        return Charset();
+    }
+
+    if (sql.first())
+    {
+        Charset c;
+        c.setId(sql.value(0).toInt());
+        c.setName(sql.value(1).toString());
+
+        return c;
+    }
+    else
+    {
+        return Charset();
+    }
+}
+
+void DatabaseManager::linkCharsetToCharacter(Charset charset, Character character)
+{
+    QSqlQuery sql;
+
+    if (charset.isNull())
+    {
+        throw QString("Charset is null");
+    }
+
+    if (character.isNull())
+    {
+        throw QString("Character is null");
+    }
+
+    qDebug() << "Inserting charset" << charset.getId() << "with character" << character.getId();
+
+    sql.prepare("INSERT INTO charset_item(charset, 'character') VALUES(?, ?)");
+    sql.addBindValue(charset.getId());
+    sql.addBindValue(character.getId());
+
+    if (!sql.exec())
+    {
+        throw QString("Error during charset_item insert");
+    }
+}
+
+bool DatabaseManager::areCharsetAndCharacterLinked(Charset charset, Character character)
+{
+    QSqlQuery sql;
+
+    if (charset.isNull())
+    {
+        throw QString("Charset is null");
+    }
+
+    if (character.isNull())
+    {
+        throw QString("Character is null");
+    }
+
+    qDebug() << "Searching link between charset" << charset.getId() << "and character" << character.getId();
+
+    sql.prepare("SELECT charset, 'character' FROM charset_item WHERE charset=? AND 'character'=?");
+    sql.addBindValue(charset.getId());
+    sql.addBindValue(character.getId());
+
+    if (!sql.exec())
+    {
+        throw QString("Error during charset_item insert");
+    }
+
+    if (sql.first())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 

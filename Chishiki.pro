@@ -10,6 +10,7 @@ DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs depr
 
 SOURCES += \
     src/db/character.cpp \
+    src/db/charset.cpp \
     src/db/databasemanager.cpp \
     src/db/databaseupdater.cpp \
     src/etc/path.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     include/db/character.h \
+    include/db/charset.h \
     include/db/databasemanager.h \
     include/db/databaseupdater.h \
     include/etc/characterTranslation.h \

@@ -4,6 +4,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QProgressDialog>
 #include "include/db/databaseupdater.h"
 #include "include/db/databasemanager.h"
 #include "include/etc/chishiki.h"
@@ -16,6 +17,11 @@ void DatabaseUpdater::autoUpdate(void)
         createDatabase();
         buildDatabase();
     }
+
+    if (DatabaseManager::getParameter("app.version") != CHISHIKI_VERSION)
+    {
+        buildDatabase();
+    }
 }
 
 void DatabaseUpdater::createDatabase(void)
@@ -23,7 +29,7 @@ void DatabaseUpdater::createDatabase(void)
     QSqlQuery sql;
 
     qDebug() << "Creating character table";
-    sql.prepare("CREATE TABLE 'character' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 'char' TEXT NOT NULL, onyomi TEXT, kunyomi INTEGER, 'type' INTEGER NOT NULL, strokes INTEGER NOT NULL)");
+    sql.prepare("CREATE TABLE 'character' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 'char' TEXT NOT NULL, onyomi TEXT, kunyomi TEXT, 'type' INTEGER NOT NULL, strokes INTEGER NOT NULL)");
 
     if (!sql.exec())
     {
@@ -97,6 +103,12 @@ void DatabaseUpdater::createDatabase(void)
 
 void DatabaseUpdater::buildDatabase(void)
 {
+    buildCharacterDatabase();
+    buildCharsetDatabase();
+}
+
+void DatabaseUpdater::buildCharacterDatabase(void)
+{
     qDebug() << "Updating character database";
     QFile characterFile(":/database/character.json");
 
@@ -124,7 +136,8 @@ void DatabaseUpdater::buildDatabase(void)
         QJsonValue characterItem = characterList.at(i);
 
         if (!characterItem.isObject()) {
-            throw QString("Character database reference corrupted");
+            qWarning() << "Character item corrupted";
+            continue;
         }
 
         QJsonObject characterObject = characterItem.toObject();
@@ -150,6 +163,102 @@ void DatabaseUpdater::buildDatabase(void)
         if (baseCharacter.isNull())
         {
             DatabaseManager::insertCharacter(c);
+        }
+        else if (c != baseCharacter)
+        {
+            DatabaseManager::updateCharacter(c);
+        }
+    }
+}
+
+void DatabaseUpdater::buildCharsetDatabase(void)
+{
+    qDebug() << "Updating charset database";
+    QFile charsetFile(":/database/charset.json");
+
+    qDebug() << "Opening charset database reference";
+    if (!charsetFile.open(QIODevice::ReadOnly))
+    {
+        throw QString("Unable to open charset database reference");
+    }
+
+    qDebug("Parsing JSON");
+    QJsonDocument charsetReference = QJsonDocument::fromJson(charsetFile.readAll());
+
+    if (!charsetReference.isArray())
+    {
+        throw QString("Charset database reference corrupted");
+    }
+
+    QJsonArray charsetList = charsetReference.array();
+    int total = charsetList.count();
+    int i = 0;
+
+    qDebug() << "Parsing array";
+    for (i = 0; (i < total); i++)
+    {
+        QJsonValue charsetItem = charsetList.at(i);
+
+        if (!charsetItem.isObject())
+        {
+            qWarning() << "Charset item corrumpted";
+            continue;
+        }
+
+        QJsonObject charsetObject = charsetItem.toObject();
+
+        if (!isViableCharsetReference(charsetObject))
+        {
+            qWarning() << "Charset item corrumpted";
+            continue;
+        }
+
+        Charset chrset;
+        chrset.setId(charsetObject["id"].toInt());
+        chrset.setName(charsetObject["name"].toString());
+
+        qDebug() << "Checking charset" << chrset.getName();
+
+        Charset baseCharset = DatabaseManager::getCharset(chrset.getId());
+
+        if (baseCharset.isNull())
+        {
+            DatabaseManager::insertCharset(chrset);
+        }
+        else if (chrset != baseCharset)
+        {
+            DatabaseManager::updateCharset(chrset);
+        }
+
+        QJsonArray charactersList = charsetObject["chars"].toArray();
+        int totalChars = charactersList.count();
+        int j = 0;
+
+        qDebug() << "Checking character list";
+        for (j = 0; (j < totalChars); j++)
+        {
+            QJsonValue charValue = charactersList.at(j);
+
+            if (!charValue.isDouble())
+            {
+                qWarning() << "Character id is not a number";
+                continue;
+            }
+
+            int charId = charValue.toInt();
+
+            Character chr = DatabaseManager::getCharacter(charId);
+
+            if (chr.isNull())
+            {
+                qWarning() << "Character id not found in database";
+                continue;
+            }
+
+            if (!DatabaseManager::areCharsetAndCharacterLinked(chrset, chr))
+            {
+                DatabaseManager::linkCharsetToCharacter(chrset, chr);
+            }
         }
     }
 }
@@ -230,6 +339,47 @@ bool DatabaseUpdater::isViableCharacterReference(const QJsonObject &ref)
     if (!ref["strokes"].isDouble())
     {
         qWarning() << "Property strokes isn't a number";
+        return false;
+    }
+
+    return true;
+}
+
+bool DatabaseUpdater::isViableCharsetReference(const QJsonObject &ref)
+{
+    if (!ref.contains("id"))
+    {
+        qWarning() << "Property id not found";
+        return false;
+    }
+
+    if (!ref["id"].isDouble())
+    {
+        qWarning() << "Property id is not a number";
+        return false;
+    }
+
+    if (!ref.contains("name"))
+    {
+        qWarning() << "Property name not found";
+        return false;
+    }
+
+    if (!ref["name"].isString())
+    {
+        qWarning() << "Property name is not a string";
+        return false;
+    }
+
+    if (!ref.contains("chars"))
+    {
+        qWarning() << "Property chars not found";
+        return false;
+    }
+
+    if (!ref["chars"].isArray())
+    {
+        qWarning() << "Property chars is not an array";
         return false;
     }
 

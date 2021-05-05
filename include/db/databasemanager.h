@@ -3,6 +3,7 @@
 
 #include <QSqlDatabase>
 #include "character.h"
+#include "charset.h"
 
 class DatabaseManager
 {
@@ -17,6 +18,15 @@ class DatabaseManager
         static void updateCharacter(int id, Character character);
         static void removeCharacter(Character character);
         static void removeCharacter(int id);
+
+        // charset table management
+        static Charset getCharset(int id);
+        static void insertCharset(Charset charset);
+        static void updateCharset(Charset charset);
+
+        // charset_item table management
+        static void linkCharsetToCharacter(Charset charset, Character character);
+        static bool areCharsetAndCharacterLinked(Charset charset, Character character);
 
         // test table management
 

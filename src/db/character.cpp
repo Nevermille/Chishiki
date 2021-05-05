@@ -28,17 +28,17 @@ bool Character::operator==(const Character &other)
 
 bool Character::operator!=(const Character &other)
 {
-    if (id == other.id
-            && character == other.character
-            && onyomi == other.onyomi
-            && kunyomi == other.kunyomi
-            && type == other.type
-            && strokes == other.strokes)
+    if (id != other.id
+            || character != other.character
+            || onyomi != other.onyomi
+            || kunyomi != other.kunyomi
+            || type != other.type
+            || strokes != other.strokes)
     {
-        return false;
+        return true;
     }
 
-    return true;
+    return false;
 }
 
 bool Character::isNull(void)
