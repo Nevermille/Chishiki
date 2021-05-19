@@ -32,7 +32,7 @@ Character DatabaseManager::getCharacter(int id)
 
     qDebug() << "Searching character number" << id;
 
-    sql.prepare("SELECT * FROM 'character' c WHERE id = ?");
+    sql.prepare("SELECT * FROM \"character\" c WHERE id = ?");
     sql.addBindValue(id);
 
     if (!sql.exec())
@@ -70,7 +70,7 @@ void DatabaseManager::insertCharacter(Character character)
 
     qDebug() << "Inserting a character";
 
-    sql.prepare("INSERT INTO 'character'(id, 'char', onyomi, kunyomi, 'type', strokes) VALUES(?, ?, ?, ?, ?, ?)");
+    sql.prepare("INSERT INTO \"character\"(id, \"char\", onyomi, kunyomi, \"type\", strokes) VALUES(?, ?, ?, ?, ?, ?)");
     sql.addBindValue(character.getId());
     sql.addBindValue(character.getCharacter());
     sql.addBindValue(character.getOnyomi());
@@ -95,7 +95,7 @@ void DatabaseManager::updateCharacter(Character character)
 
     qDebug() << "Updating character" << character.getId();
 
-    sql.prepare("UPDATE 'character' SET 'char'=?, onyomi=?, kunyomi=?, 'type'=?, strokes=? WHERE id=?");
+    sql.prepare("UPDATE \"character\" SET \"char\"=?, onyomi=?, kunyomi=?, \"type\"=?, strokes=? WHERE id=?");
     sql.addBindValue(character.getCharacter());
     sql.addBindValue(character.getOnyomi());
     sql.addBindValue(character.getKunyomi());
@@ -196,7 +196,7 @@ void DatabaseManager::linkCharsetToCharacter(Charset charset, Character characte
 
     qDebug() << "Inserting charset" << charset.getId() << "with character" << character.getId();
 
-    sql.prepare("INSERT INTO charset_item(charset, 'character') VALUES(?, ?)");
+    sql.prepare("INSERT INTO charset_item(charset, \"character\") VALUES(?, ?)");
     sql.addBindValue(charset.getId());
     sql.addBindValue(character.getId());
 
@@ -222,13 +222,13 @@ bool DatabaseManager::areCharsetAndCharacterLinked(Charset charset, Character ch
 
     qDebug() << "Searching link between charset" << charset.getId() << "and character" << character.getId();
 
-    sql.prepare("SELECT charset, 'character' FROM charset_item WHERE charset=? AND 'character'=?");
+    sql.prepare("SELECT charset, \"character\" FROM charset_item WHERE charset=? AND \"character\"=?");
     sql.addBindValue(charset.getId());
     sql.addBindValue(character.getId());
 
     if (!sql.exec())
     {
-        throw QString("Error during charset_item insert");
+        throw QString("Error during charset_item search");
     }
 
     if (sql.first())

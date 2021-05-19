@@ -129,11 +129,17 @@ void DatabaseUpdater::buildCharacterDatabase(void)
     QJsonArray characterList = characterReference.array();
     int total = characterList.count();
     int i = 0;
+    QProgressDialog progress(tr("Building character database"), tr("Hide"), 0, total);
+    progress.setModal(true);
 
     qDebug() << "Parsing array";
     for (i = 0; (i < total); i++)
     {
         QJsonValue characterItem = characterList.at(i);
+
+        progress.setValue(i);
+        progress.setLabelText(tr("Building character database") + " [" + QString::number(i) + "/" + QString::number(total) + "]");
+        QCoreApplication::processEvents();
 
         if (!characterItem.isObject()) {
             qWarning() << "Character item corrupted";
@@ -169,6 +175,8 @@ void DatabaseUpdater::buildCharacterDatabase(void)
             DatabaseManager::updateCharacter(c);
         }
     }
+
+    progress.close();
 }
 
 void DatabaseUpdater::buildCharsetDatabase(void)
