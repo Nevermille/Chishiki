@@ -242,10 +242,17 @@ void DatabaseUpdater::buildCharsetDatabase(void)
         int totalChars = charactersList.count();
         int j = 0;
 
+        QProgressDialog progress(tr("Building charset database"), tr("Hide"), 0, totalChars);
+        progress.setModal(true);
+
         qDebug() << "Checking character list";
         for (j = 0; (j < totalChars); j++)
         {
             QJsonValue charValue = charactersList.at(j);
+
+            progress.setValue(i);
+            progress.setLabelText(tr("Building charset database") + " [" + QString::number(i) + "/" + QString::number(total) + "]");
+            QCoreApplication::processEvents();
 
             if (!charValue.isDouble())
             {
@@ -268,6 +275,8 @@ void DatabaseUpdater::buildCharsetDatabase(void)
                 DatabaseManager::linkCharsetToCharacter(chrset, chr);
             }
         }
+
+        progress.close();
     }
 }
 
