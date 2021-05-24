@@ -6,7 +6,7 @@ KanaTest::KanaTest(QWidget *parent) : QWidget(parent), ui(new Ui::KanaTest)
     ui->setupUi(this);
 }
 
-void KanaTest::on_kanatestbackbutton_clicked()
+void KanaTest::on_kanatestbackbutton_clicked(void)
 {
-    emit backButtonClicked();
+
 }

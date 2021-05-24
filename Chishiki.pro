@@ -16,9 +16,13 @@ SOURCES += \
     src/etc/path.cpp \
     src/main.cpp \
     src/ui/about.cpp \
+    src/ui/characterchooser.cpp \
     src/ui/home.cpp \
     src/ui/kanatest.cpp \
-    src/ui/mainwindow.cpp
+    src/ui/kanjitest.cpp \
+    src/ui/mainwindow.cpp \
+    src/widget/kanjiselector.cpp \
+    src/widget/kanjiviewer.cpp
 
 HEADERS += \
     include/db/character.h \
@@ -29,15 +33,23 @@ HEADERS += \
     include/etc/chishiki.h \
     include/etc/path.h \
     include/ui/about.h \
+    include/ui/characterchooser.h \
     include/ui/home.h \
     include/ui/kanatest.h \
-    include/ui/mainwindow.h
+    include/ui/kanjitest.h \
+    include/ui/mainwindow.h \
+    include/widget/kanjiselector.h \
+    include/widget/kanjiviewer.h
 
 FORMS += \
     ui/about.ui \
+    ui/characterchooser.ui \
     ui/home.ui \
     ui/kanatest.ui \
-    ui/mainwindow.ui
+    ui/kanjitest.ui \
+    ui/mainwindow.ui \
+    widget/kanjiselector.ui \
+    widget/kanjiviewer.ui
 
 TRANSLATIONS += \
     locale/Chishiki_en_US.ts \
@@ -54,7 +66,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     .gitignore \
     LICENSE \
-    README.md
+    README.md \
+    resource/style/light.qss
 
 RESOURCES += \
     resource/chishiki.qrc

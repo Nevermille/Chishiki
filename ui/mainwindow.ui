@@ -14,19 +14,19 @@
    <string>Chishiki</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resource/images.qrc">
+   <iconset>
     <normaloff>:/app/images/app/Chishiki1024.png</normaloff>
     <normalon>:/app/images/app/Chishiki1024.png</normalon>:/app/images/app/Chishiki1024.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QStackedWidget" name="mainwidget">
+     <widget class="QStackedWidget" name="uiStack">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="Home" name="home"/>
-      <widget class="KanaTest" name="kanatest"/>
+      <widget class="CharacterChooser" name="characterchooser"/>
      </widget>
     </item>
    </layout>
@@ -92,20 +92,19 @@
    <container>1</container>
    <slots>
     <signal>kanaTestClicked()</signal>
+    <signal>kanjiTestClicked()</signal>
    </slots>
   </customwidget>
   <customwidget>
-   <class>KanaTest</class>
+   <class>CharacterChooser</class>
    <extends>QWidget</extends>
-   <header>include/ui/kanatest.h</header>
+   <header>include/ui/characterchooser.h</header>
    <container>1</container>
    <slots>
-    <signal>backButtonClicked()</signal>
+    <signal>returnToHome()</signal>
    </slots>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../resource/images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

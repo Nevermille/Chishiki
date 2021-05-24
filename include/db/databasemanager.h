@@ -10,6 +10,9 @@ class DatabaseManager
     public:
         // Database management
         static void connect(void);
+        static void beginTransaction(void);
+        static void rollback(void);
+        static void commit(void);
 
         // character table management
         static Character getCharacter(int id);

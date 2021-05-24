@@ -131,6 +131,7 @@ void DatabaseUpdater::buildCharacterDatabase(void)
     int i = 0;
     QProgressDialog progress(tr("Building character database"), tr("Hide"), 0, total);
     progress.setModal(true);
+    DatabaseManager::beginTransaction();
 
     qDebug() << "Parsing array";
     for (i = 0; (i < total); i++)
@@ -176,6 +177,7 @@ void DatabaseUpdater::buildCharacterDatabase(void)
         }
     }
 
+    DatabaseManager::commit();
     progress.close();
 }
 
@@ -201,6 +203,7 @@ void DatabaseUpdater::buildCharsetDatabase(void)
     QJsonArray charsetList = charsetReference.array();
     int total = charsetList.count();
     int i = 0;
+    DatabaseManager::beginTransaction();
 
     qDebug() << "Parsing array";
     for (i = 0; (i < total); i++)
@@ -269,6 +272,8 @@ void DatabaseUpdater::buildCharsetDatabase(void)
             }
         }
     }
+
+    DatabaseManager::commit();
 }
 
 /*!

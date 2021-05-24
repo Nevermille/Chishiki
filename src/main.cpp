@@ -2,6 +2,7 @@
 #include <QSplashScreen>
 #include <QApplication>
 #include <QtGlobal>
+#include <QFile>
 #include "include/etc/path.h"
 #include "include/db/databasemanager.h"
 #include "include/db/databaseupdater.h"
@@ -11,6 +12,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     qDebug() << "Welcome to Chishiki!";
+    MainWindow w;
 
     // Loads splash screen
     qDebug() << "Loading splash screen";
@@ -33,11 +35,13 @@ int main(int argc, char *argv[])
         a.quit();
     }
 
-    // Loads app window
-    /*MainWindow w;
-    w.show();
-    splash.finish(&w);*/
+    QFile file(":/style/light.qss");
+    file.open(QIODevice::ReadOnly);
+    QString stylesheet = QLatin1String(file.readAll());
+    a.setStyleSheet(stylesheet);
 
-    a.quit();
+    // Loads app window
+    w.show();
+    splash.finish(&w);
     return a.exec();
 }

@@ -5,6 +5,23 @@
 
 QSqlDatabase DatabaseManager::db;
 
+void DatabaseManager::beginTransaction(void)
+{
+    qDebug() << "Begining trasaction";
+    db.transaction();
+}
+
+void DatabaseManager::rollback(void)
+{
+    qDebug() << "Canceling DB changes";
+    db.rollback();
+}
+
+void DatabaseManager::commit(void)
+{
+    qDebug() << "Applying DB changes";
+    db.commit();
+}
 
 void DatabaseManager::connect(void)
 {

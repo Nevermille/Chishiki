@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>database/character.json</file>
         <file>database/charset.json</file>
+        <file>style/light.qss</file>
+        <file>images/glyph/school.svg</file>
     </qresource>
 </RCC>

@@ -16,9 +16,14 @@ class Home : public QWidget
 
     signals:
         void kanaTestClicked(void);
+        void kanjiTestClicked(void);
 
     private slots:
-        void on_kanatestsection_clicked();
+        void on_kanaTestButton_clicked();
+
+        void on_kanjiTestButton_clicked();
+
+        void on_pushButton_clicked();
 
     private:
         Ui::Home *ui;

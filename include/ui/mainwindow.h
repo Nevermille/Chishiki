@@ -19,10 +19,12 @@ class MainWindow : public QMainWindow
         void on_actionAbout_Qt_triggered();
         void on_actionAbout_Chishiki_triggered();
         void on_actionBlank_triggered();
-
         void on_home_kanaTestClicked();
-
         void on_kanatest_backButtonClicked();
+
+        void on_home_kanjiTestClicked();
+
+        void on_characterchooser_returnToHome();
 
 private:
         Ui::MainWindow *ui;
