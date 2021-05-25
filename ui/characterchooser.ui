@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>473</width>
-    <height>373</height>
+    <width>783</width>
+    <height>647</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,28 +37,44 @@
        <item>
         <widget class="QToolButton" name="addOneCharButton">
          <property name="text">
-          <string>-&gt;</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../resource/chishiki.qrc">
+           <normaloff>:/images/glyph/add.svg</normaloff>:/images/glyph/add.svg</iconset>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QToolButton" name="addAllCharssButton">
          <property name="text">
-          <string>=&gt;</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../resource/chishiki.qrc">
+           <normaloff>:/images/glyph/addAll.svg</normaloff>:/images/glyph/addAll.svg</iconset>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QToolButton" name="removeAllCharsButton">
          <property name="text">
-          <string>&lt;=</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../resource/chishiki.qrc">
+           <normaloff>:/images/glyph/removeAll.svg</normaloff>:/images/glyph/removeAll.svg</iconset>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QToolButton" name="removeOneCharButton">
          <property name="text">
-          <string>&lt;-</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../resource/chishiki.qrc">
+           <normaloff>:/images/glyph/remove.svg</normaloff>:/images/glyph/remove.svg</iconset>
          </property>
         </widget>
        </item>
@@ -98,13 +114,6 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Back</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="pushButton_2">
        <property name="text">
         <string>Choose</string>
@@ -123,7 +132,9 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../resource/chishiki.qrc"/>
+ </resources>
  <connections/>
  <slots>
   <signal>returnToHome()</signal>

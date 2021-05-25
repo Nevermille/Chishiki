@@ -4,5 +4,14 @@
         <file>database/charset.json</file>
         <file>style/light.qss</file>
         <file>images/glyph/school.svg</file>
+        <file>images/app/Chishiki1024.png</file>
+        <file>images/glyph/settings.svg</file>
+        <file>images/glyph/test.svg</file>
+        <file>images/glyph/grades.svg</file>
+        <file>images/glyph/library.svg</file>
+        <file>images/glyph/add.svg</file>
+        <file>images/glyph/addAll.svg</file>
+        <file>images/glyph/remove.svg</file>
+        <file>images/glyph/removeAll.svg</file>
     </qresource>
 </RCC>

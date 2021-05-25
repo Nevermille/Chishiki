@@ -14,17 +14,6 @@ class Home : public QWidget
     public:
         explicit Home(QWidget *parent = nullptr);
 
-    signals:
-        void kanaTestClicked(void);
-        void kanjiTestClicked(void);
-
-    private slots:
-        void on_kanaTestButton_clicked();
-
-        void on_kanjiTestButton_clicked();
-
-        void on_pushButton_clicked();
-
     private:
         Ui::Home *ui;
 };

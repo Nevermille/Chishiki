@@ -4,10 +4,18 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QMenu>
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QMenu* settingsMenu = new QMenu(this);
+    settingsMenu->addAction(ui->actionAbout_Chishiki);
+    settingsMenu->addAction(ui->actionAbout_Qt);
+    settingsMenu->addAction(ui->actionExit);
+
+    ui->settingButton->setMenu(settingsMenu);
 }
 
 MainWindow::~MainWindow()
@@ -15,44 +23,72 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_actionAbout_Qt_triggered(void)
+void MainWindow::checkNavbarItem(QWidget *item)
 {
-    QMessageBox::aboutQt(ui->centralwidget);
-}
+    if (item == ui->testButton) {
+        ui->testButton->setChecked(true);
+    } else {
+        ui->testButton->setChecked(false);
+    }
 
-void MainWindow::on_actionAbout_Chishiki_triggered(void)
-{
-    About().exec();
-}
+    if (item == ui->learnButton) {
+        ui->learnButton->setChecked(true);
+    } else {
+        ui->learnButton->setChecked(false);
+    }
 
-void MainWindow::on_actionBlank_triggered()
-{
+    if (item == ui->resultButton) {
+        ui->resultButton->setChecked(true);
+    } else {
+        ui->resultButton->setChecked(false);
+    }
 
-}
-
-void MainWindow::on_home_kanaTestClicked()
-{
-
-}
-
-void MainWindow::on_kanatest_backButtonClicked(void)
-{
-
-}
-
-void MainWindow::on_home_kanjiTestClicked()
-{
-    CharacterChooser* cc = dynamic_cast<CharacterChooser*>(ui->uiStack->widget(1));
-
-    if (cc) {
-        cc->setActionMode(CharacterChooser::KanjiTest);
-        cc->setListMode(CharacterChooser::KanjiList);
-        ui->uiStack->setCurrentIndex(1);
+    if (item == ui->libraryButton) {
+        ui->libraryButton->setChecked(true);
+    } else {
+        ui->libraryButton->setChecked(false);
     }
 }
 
-void MainWindow::on_characterchooser_returnToHome()
+void MainWindow::on_testButton_clicked()
 {
+    checkNavbarItem(ui->testButton);
+    ui->uiStack->setCurrentIndex(1);
+}
+
+void MainWindow::on_homeButton_clicked()
+{
+    checkNavbarItem(ui->homeButton);
     ui->uiStack->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_learnButton_clicked()
+{
+    checkNavbarItem(ui->learnButton);
+}
+
+
+void MainWindow::on_libraryButton_clicked()
+{
+    checkNavbarItem(ui->libraryButton);
+}
+
+
+void MainWindow::on_resultButton_clicked()
+{
+    checkNavbarItem(ui->resultButton);
+}
+
+
+void MainWindow::on_actionAbout_Qt_triggered()
+{
+    QMessageBox::aboutQt(this);
+}
+
+
+void MainWindow::on_actionExit_triggered()
+{
+    QApplication::exit();
 }
 

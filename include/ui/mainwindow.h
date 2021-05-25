@@ -14,17 +14,18 @@ class MainWindow : public QMainWindow
     public:
         MainWindow(QWidget *parent = nullptr);
         ~MainWindow();
+        void checkNavbarItem(QWidget* item);
 
     private slots:
+        void on_testButton_clicked();
+        void on_homeButton_clicked();
+        void on_learnButton_clicked();
+        void on_libraryButton_clicked();
+        void on_resultButton_clicked();
+
         void on_actionAbout_Qt_triggered();
-        void on_actionAbout_Chishiki_triggered();
-        void on_actionBlank_triggered();
-        void on_home_kanaTestClicked();
-        void on_kanatest_backButtonClicked();
 
-        void on_home_kanjiTestClicked();
-
-        void on_characterchooser_returnToHome();
+        void on_actionExit_triggered();
 
 private:
         Ui::MainWindow *ui;
