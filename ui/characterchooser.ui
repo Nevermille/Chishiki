@@ -41,7 +41,8 @@
          </property>
          <property name="icon">
           <iconset resource="../resource/chishiki.qrc">
-           <normaloff>:/images/glyph/add.svg</normaloff>:/images/glyph/add.svg</iconset>
+           <normaloff>:/images/glyph/add-grey.svg</normaloff>
+           <normalon>:/images/glyph/add-white.svg</normalon>:/images/glyph/add-grey.svg</iconset>
          </property>
         </widget>
        </item>
@@ -52,7 +53,8 @@
          </property>
          <property name="icon">
           <iconset resource="../resource/chishiki.qrc">
-           <normaloff>:/images/glyph/addAll.svg</normaloff>:/images/glyph/addAll.svg</iconset>
+           <normaloff>:/images/glyph/addAll-grey.svg</normaloff>
+           <normalon>:/images/glyph/addAll-white.svg</normalon>:/images/glyph/addAll-grey.svg</iconset>
          </property>
         </widget>
        </item>
@@ -63,7 +65,8 @@
          </property>
          <property name="icon">
           <iconset resource="../resource/chishiki.qrc">
-           <normaloff>:/images/glyph/removeAll.svg</normaloff>:/images/glyph/removeAll.svg</iconset>
+           <normaloff>:/images/glyph/removeAll-grey.svg</normaloff>
+           <normalon>:/images/glyph/removeAll-white.svg</normalon>:/images/glyph/removeAll-grey.svg</iconset>
          </property>
         </widget>
        </item>
@@ -74,7 +77,8 @@
          </property>
          <property name="icon">
           <iconset resource="../resource/chishiki.qrc">
-           <normaloff>:/images/glyph/remove.svg</normaloff>:/images/glyph/remove.svg</iconset>
+           <normaloff>:/images/glyph/remove-grey.svg</normaloff>
+           <normalon>:/images/glyph/remove-white.svg</normalon>:/images/glyph/remove-grey.svg</iconset>
          </property>
         </widget>
        </item>

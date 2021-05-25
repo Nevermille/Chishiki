@@ -98,7 +98,8 @@
           </property>
           <property name="icon">
            <iconset resource="../resource/chishiki.qrc">
-            <normaloff>:/images/glyph/school.svg</normaloff>:/images/glyph/school.svg</iconset>
+            <normaloff>:/images/glyph/school-grey.svg</normaloff>
+            <activeon>:/images/glyph/school-white.svg</activeon>:/images/glyph/school-grey.svg</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -127,7 +128,8 @@
           </property>
           <property name="icon">
            <iconset resource="../resource/chishiki.qrc">
-            <normaloff>:/images/glyph/test.svg</normaloff>:/images/glyph/test.svg</iconset>
+            <normaloff>:/images/glyph/test-grey.svg</normaloff>
+            <activeon>:/images/glyph/test-white.svg</activeon>:/images/glyph/test-grey.svg</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -159,7 +161,8 @@
           </property>
           <property name="icon">
            <iconset resource="../resource/chishiki.qrc">
-            <normaloff>:/images/glyph/library.svg</normaloff>:/images/glyph/library.svg</iconset>
+            <normaloff>:/images/glyph/library-grey.svg</normaloff>
+            <activeon>:/images/glyph/library-white.svg</activeon>:/images/glyph/library-grey.svg</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -188,7 +191,8 @@
           </property>
           <property name="icon">
            <iconset resource="../resource/chishiki.qrc">
-            <normaloff>:/images/glyph/grades.svg</normaloff>:/images/glyph/grades.svg</iconset>
+            <normaloff>:/images/glyph/grades-grey.svg</normaloff>
+            <activeon>:/images/glyph/grades-white.svg</activeon>:/images/glyph/grades-grey.svg</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -230,7 +234,9 @@
           </property>
           <property name="icon">
            <iconset resource="../resource/chishiki.qrc">
-            <normaloff>:/images/glyph/settings.svg</normaloff>:/images/glyph/settings.svg</iconset>
+            <normaloff>:/images/glyph/settings-grey.svg</normaloff>
+            <normalon>:/images/glyph/settings-white.svg</normalon>
+            <activeoff>:/images/glyph/settings-white.svg</activeoff>:/images/glyph/settings-grey.svg</iconset>
           </property>
           <property name="iconSize">
            <size>

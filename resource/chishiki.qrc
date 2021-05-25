@@ -13,5 +13,23 @@
         <file>images/glyph/addAll.svg</file>
         <file>images/glyph/remove.svg</file>
         <file>images/glyph/removeAll.svg</file>
+        <file>images/glyph/add-grey.svg</file>
+        <file>images/glyph/add-white.svg</file>
+        <file>images/glyph/addAll-grey.svg</file>
+        <file>images/glyph/addAll-white.svg</file>
+        <file>images/glyph/grades-grey.svg</file>
+        <file>images/glyph/grades-white.svg</file>
+        <file>images/glyph/library-grey.svg</file>
+        <file>images/glyph/library-white.svg</file>
+        <file>images/glyph/remove-grey.svg</file>
+        <file>images/glyph/remove-white.svg</file>
+        <file>images/glyph/removeAll-grey.svg</file>
+        <file>images/glyph/removeAll-white.svg</file>
+        <file>images/glyph/school-grey.svg</file>
+        <file>images/glyph/school-white.svg</file>
+        <file>images/glyph/settings-grey.svg</file>
+        <file>images/glyph/settings-white.svg</file>
+        <file>images/glyph/test-grey.svg</file>
+        <file>images/glyph/test-white.svg</file>
     </qresource>
 </RCC>
