@@ -76,7 +76,7 @@ Character DatabaseManager::getCharacter(int id)
     }
 }
 
-void DatabaseManager::insertCharacter(Character character)
+void DatabaseManager::insertCharacter(const Character &character)
 {
     QSqlQuery sql;
 
@@ -101,7 +101,7 @@ void DatabaseManager::insertCharacter(Character character)
     }
 }
 
-void DatabaseManager::updateCharacter(Character character)
+void DatabaseManager::updateCharacter(const Character &character)
 {
     QSqlQuery sql;
 
@@ -126,7 +126,16 @@ void DatabaseManager::updateCharacter(Character character)
     }
 }
 
-void DatabaseManager::insertCharset(Charset charset)
+Charset DatabaseManager::rowToCharset(const QSqlQuery &query)
+{
+    Charset c;
+    c.setId(query.value(0).toInt());
+    c.setName(query.value(1).toString());
+
+    return c;
+}
+
+void DatabaseManager::insertCharset(const Charset &charset)
 {
     QSqlQuery sql;
 
@@ -147,7 +156,7 @@ void DatabaseManager::insertCharset(Charset charset)
     }
 }
 
-void DatabaseManager::updateCharset(Charset charset)
+void DatabaseManager::updateCharset(const Charset &charset)
 {
     QSqlQuery sql;
 
@@ -185,11 +194,7 @@ Charset DatabaseManager::getCharset(int id)
 
     if (sql.first())
     {
-        Charset c;
-        c.setId(sql.value(0).toInt());
-        c.setName(sql.value(1).toString());
-
-        return c;
+        return rowToCharset(sql);
     }
     else
     {
@@ -197,7 +202,32 @@ Charset DatabaseManager::getCharset(int id)
     }
 }
 
-void DatabaseManager::linkCharsetToCharacter(Charset charset, Character character)
+QList<Charset> DatabaseManager::getCharsetRange(int start, int end)
+{
+    QSqlQuery sql;
+    QList<Charset> result;
+
+    qDebug() << "Searching charset between number" << start << "and" << end;
+
+    sql.prepare("SELECT * FROM 'charset' c WHERE id BETWEEN ? and ?");
+    sql.addBindValue(start);
+    sql.addBindValue(end);
+
+    if (!sql.exec())
+    {
+        qWarning() << "Error during database query";
+        return QList<Charset>();
+    }
+
+    while (sql.next())
+    {
+        result.append(rowToCharset(sql));
+    }
+
+    return result;
+}
+
+void DatabaseManager::linkCharsetToCharacter(const Charset &charset, const Character &character)
 {
     QSqlQuery sql;
 
@@ -223,7 +253,7 @@ void DatabaseManager::linkCharsetToCharacter(Charset charset, Character characte
     }
 }
 
-bool DatabaseManager::areCharsetAndCharacterLinked(Charset charset, Character character)
+bool DatabaseManager::areCharsetAndCharacterLinked(const Charset &charset, const Character &character)
 {
     QSqlQuery sql;
 
@@ -258,6 +288,35 @@ bool DatabaseManager::areCharsetAndCharacterLinked(Charset charset, Character ch
     }
 }
 
+QList<Character> DatabaseManager::getAllCharactersForCharset(const Charset &charset)
+{
+    QSqlQuery sql;
+    QList<Character> result;
+
+    if (charset.isNull())
+    {
+        throw QString("Charset is null");
+    }
+
+    qDebug() << "Getting all characters for charset" << charset.getId();
+
+    sql.setForwardOnly(true);
+    sql.prepare("SELECT charset, \"character\" FROM charset_item WHERE charset=?");
+    sql.addBindValue(charset.getId());
+
+    if (!sql.exec())
+    {
+        throw QString("Error during charset_item search");
+    }
+
+    while (sql.next())
+    {
+        result.append(getCharacter(sql.value(1).toInt()));
+    }
+
+    return result;
+}
+
 bool DatabaseManager::settingTableExists(void)
 {
     QSqlQuery sql;
@@ -281,7 +340,7 @@ bool DatabaseManager::settingTableExists(void)
     }
 }
 
-QString DatabaseManager::getParameter(QString name)
+QString DatabaseManager::getParameter(const QString &name)
 {
     QSqlQuery sql;
 

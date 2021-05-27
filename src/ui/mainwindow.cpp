@@ -52,14 +52,21 @@ void MainWindow::checkNavbarItem(QWidget *item)
 
 void MainWindow::on_testButton_clicked()
 {
+    CharacterChooser* cc = dynamic_cast<CharacterChooser*>(ui->uiStack->widget(CHARACTER_CHOOSER_PAGE));
+
     checkNavbarItem(ui->testButton);
-    ui->uiStack->setCurrentIndex(1);
+
+    cc->setActionMode(CharacterChooser::KanjiTest);
+    cc->setListMode(CharacterChooser::KanjiList);
+    cc->resetUi();
+
+    ui->uiStack->setCurrentIndex(CHARACTER_CHOOSER_PAGE);
 }
 
 void MainWindow::on_homeButton_clicked()
 {
     checkNavbarItem(ui->homeButton);
-    ui->uiStack->setCurrentIndex(0);
+    ui->uiStack->setCurrentIndex(HOME_PAGE);
 }
 
 

@@ -1,5 +1,6 @@
 #include "include/ui/characterchooser.h"
 #include "ui_characterchooser.h"
+#include "include/db/databasemanager.h"
 
 CharacterChooser::CharacterChooser(QWidget *parent) :
     QWidget(parent),
@@ -23,8 +24,21 @@ void CharacterChooser::setActionMode(int mode)
     actionMode = mode;
 }
 
-void CharacterChooser::on_pushButton_clicked()
+void CharacterChooser::resetUi(void)
 {
-    emit returnToHome();
-}
+    QList<Charset> list;
 
+    switch (listMode)
+    {
+        case KanaList:
+            list = DatabaseManager::getCharsetRange(0, 99);
+            ui->kanjiSelector->setCharsetList(list);
+            break;
+
+        default:
+        case KanjiList:
+            list = DatabaseManager::getCharsetRange(100, 299);
+            ui->kanjiSelector->setCharsetList(list);
+            break;
+    }
+}

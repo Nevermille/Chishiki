@@ -11,7 +11,7 @@ Character::Character(void)
     strokes = -1;
 }
 
-bool Character::operator==(const Character &other)
+bool Character::operator==(const Character &other) const
 {
     if (id != other.id
             || character != other.character
@@ -26,7 +26,7 @@ bool Character::operator==(const Character &other)
     return true;
 }
 
-bool Character::operator!=(const Character &other)
+bool Character::operator!=(const Character &other) const
 {
     if (id != other.id
             || character != other.character
@@ -41,7 +41,7 @@ bool Character::operator!=(const Character &other)
     return false;
 }
 
-bool Character::isNull(void)
+bool Character::isNull(void) const
 {
     if (id == -1)
     {
@@ -53,37 +53,37 @@ bool Character::isNull(void)
     }
 }
 
-int Character::getId(void)
+int Character::getId(void) const
 {
     return id;
 }
 
-QString Character::getCharacter(void)
+QString Character::getCharacter(void) const
 {
     return character;
 }
 
-QString Character::getOnyomi(void)
+QString Character::getOnyomi(void) const
 {
     return onyomi;
 }
 
-QString Character::getKunyomi(void)
+QString Character::getKunyomi(void) const
 {
     return kunyomi;
 }
 
-QString Character::getMeaning(void)
+QString Character::getMeaning(void) const
 {
     return "TODO";
 }
 
-int Character::getType(void)
+int Character::getType(void) const
 {
     return type;
 }
 
-int Character::getStrokes(void)
+int Character::getStrokes(void) const
 {
     return strokes;
 }

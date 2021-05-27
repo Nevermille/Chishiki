@@ -7,6 +7,9 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+#define HOME_PAGE 0
+#define CHARACTER_CHOOSER_PAGE 1
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

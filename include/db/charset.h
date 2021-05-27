@@ -10,15 +10,16 @@ class Charset
         QString name;
 
     public:
-        bool operator==(const Charset &other);
-        bool operator!=(const Charset &other);
-        bool isNull(void);
+        bool operator==(const Charset &other) const;
+        bool operator!=(const Charset &other) const;
+        bool isNull(void) const;
 
         Charset(void);
 
-        int getId(void);
+        int getId(void) const;
         void setId(int _id);
-        QString getName(void);
+
+        QString getName(void) const;
         void setName(QString _name);
 };
 

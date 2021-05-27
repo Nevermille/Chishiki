@@ -29,11 +29,9 @@ class CharacterChooser : public QWidget
 
         void setListMode(int mode);
         void setActionMode(int mode);
+        void resetUi(void);
 
-private slots:
-        void on_pushButton_clicked();
-
-private:
+    private:
         Ui::CharacterChooser *ui;
         int listMode;
         int actionMode;

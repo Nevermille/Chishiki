@@ -5,7 +5,7 @@ Charset::Charset()
     id = -1;
 }
 
-bool Charset::isNull(void)
+bool Charset::isNull(void) const
 {
     if (id < 0)
     {
@@ -15,7 +15,7 @@ bool Charset::isNull(void)
     return false;
 }
 
-bool Charset::operator==(const Charset &other)
+bool Charset::operator==(const Charset &other) const
 {
     if (id != other.id
             || name != other.name)
@@ -26,7 +26,7 @@ bool Charset::operator==(const Charset &other)
     return true;
 }
 
-bool Charset::operator!=(const Charset &other)
+bool Charset::operator!=(const Charset &other) const
 {
     if (id != other.id
             || name != other.name)
@@ -37,7 +37,7 @@ bool Charset::operator!=(const Charset &other)
     return false;
 }
 
-int Charset::getId(void)
+int Charset::getId(void) const
 {
    return id;
 }
@@ -47,7 +47,7 @@ void Charset::setId(int _id)
     id = _id;
 }
 
-QString Charset::getName(void)
+QString Charset::getName(void) const
 {
     return name;
 }
