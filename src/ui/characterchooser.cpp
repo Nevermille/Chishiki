@@ -7,6 +7,14 @@ CharacterChooser::CharacterChooser(QWidget *parent) :
     ui(new Ui::CharacterChooser)
 {
     ui->setupUi(this);
+
+    QStringList header;
+    header.append(tr("Character"));
+    header.append(tr("Meaning"));
+    header.append(tr("Internal Id"));
+
+    ui->selectedList->setColumnCount(3);
+    ui->selectedList->setHorizontalHeaderLabels(header);
 }
 
 CharacterChooser::~CharacterChooser()
@@ -40,5 +48,32 @@ void CharacterChooser::resetUi(void)
             list = DatabaseManager::getCharsetRange(100, 299);
             ui->kanjiSelector->setCharsetList(list);
             break;
+    }
+}
+
+void CharacterChooser::on_addOneCharButton_clicked()
+{
+    QList<Character> selectedCharacters = ui->kanjiSelector->getSelectedCharacters();
+    ui->kanjiSelector->hideSelectedCharacters();
+    addToSelectedList(selectedCharacters);
+}
+
+void CharacterChooser::addToSelectedList(const QList<Character> &characters)
+{
+    int total = characters.count();
+    int i = 0;
+
+    for (i = 0; (i < total); i++)
+    {
+        int currentRowId = ui->selectedList->rowCount();
+        QTableWidgetItem* characterItem = new QTableWidgetItem();
+        characterItem->setText(characters.at(i).getCharacter());
+
+        QTableWidgetItem* idItem = new QTableWidgetItem();
+        idItem->setText(QString::number(characters.at(i).getId()));
+
+        ui->selectedList->insertRow(currentRowId);
+        ui->selectedList->setItem(currentRowId, CHARACTERCHOOSER_CHARACTER_ROW, characterItem);
+        ui->selectedList->setItem(currentRowId, CHARACTERCHOOSER_ID_ROW, idItem);
     }
 }

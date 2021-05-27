@@ -2,10 +2,15 @@
 #define CHARACTERCHOOSER_H
 
 #include <QWidget>
+#include "include/widget/kanjiselector.h"
 
 namespace Ui {
 class CharacterChooser;
 }
+
+#define CHARACTERCHOOSER_CHARACTER_ROW 0
+#define CHARACTERCHOOSER_MEANING_ROW 1
+#define CHARACTERCHOOSER_ID_ROW 2
 
 class CharacterChooser : public QWidget
 {
@@ -31,10 +36,14 @@ class CharacterChooser : public QWidget
         void setActionMode(int mode);
         void resetUi(void);
 
+    private slots:
+        void on_addOneCharButton_clicked();
+
     private:
         Ui::CharacterChooser *ui;
         int listMode;
         int actionMode;
+        void addToSelectedList(const QList<Character> &characters);
 };
 
 #endif // CHARACTERCHOOSER_H

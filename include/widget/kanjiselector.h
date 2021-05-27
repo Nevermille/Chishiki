@@ -3,10 +3,15 @@
 
 #include <QWidget>
 #include "include/db/charset.h"
+#include "include/db/character.h"
 
 namespace Ui {
 class KanjiSelector;
 }
+
+#define KANJISELECTOR_CHARACTER_ROW 0
+#define KANJISELECTOR_MEANING_ROW 1
+#define KANJISELECTOR_ID_ROW 2
 
 class KanjiSelector : public QWidget
 {
@@ -14,13 +19,15 @@ class KanjiSelector : public QWidget
 
     public:
         explicit KanjiSelector(QWidget *parent = nullptr);
-        void setCharsetList(QList<Charset> &list);
         ~KanjiSelector();
+        void setCharsetList(QList<Charset> &list);
+        void hideSelectedCharacters(void);
+        QList<Character> getSelectedCharacters(void);
 
-private slots:
+    private slots:
         void on_charsetCombo_currentIndexChanged(int index);
 
-private:
+    private:
         Ui::KanjiSelector *ui;
         void fillCharacterTable(const Charset &charset);
 };
