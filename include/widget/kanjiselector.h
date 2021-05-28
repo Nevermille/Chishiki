@@ -20,9 +20,13 @@ class KanjiSelector : public QWidget
     public:
         explicit KanjiSelector(QWidget *parent = nullptr);
         ~KanjiSelector();
-        void setCharsetList(QList<Charset> &list);
+        void setCharsetList(const QList<Charset> &list);
         void hideSelectedCharacters(void);
+        void hideCharacters(const QList<Character> &list);
         QList<Character> getSelectedCharacters(void);
+
+    signals:
+        void charsetChanged(void);
 
     private slots:
         void on_charsetCombo_currentIndexChanged(int index);
@@ -30,6 +34,7 @@ class KanjiSelector : public QWidget
     private:
         Ui::KanjiSelector *ui;
         void fillCharacterTable(const Charset &charset);
+        void clear();
 };
 
 #endif // KANJISELECTOR_H

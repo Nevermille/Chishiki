@@ -7,14 +7,7 @@ KanjiSelector::KanjiSelector(QWidget *parent) :
     ui(new Ui::KanjiSelector)
 {
     ui->setupUi(this);
-
-    QStringList header;
-    header.append(tr("Character"));
-    header.append(tr("Meaning"));
-    header.append(tr("Internal Id"));
-
-    ui->kanjiTable->setColumnCount(3);
-    ui->kanjiTable->setHorizontalHeaderLabels(header);
+    clear();
 }
 
 KanjiSelector::~KanjiSelector()
@@ -22,14 +15,30 @@ KanjiSelector::~KanjiSelector()
     delete ui;
 }
 
-void KanjiSelector::setCharsetList(QList<Charset> &list)
+void KanjiSelector::clear(void)
+{
+    ui->kanjiTable->clear();
+
+    QStringList header;
+    header.append(tr("Character"));
+    header.append(tr("Meaning"));
+    header.append(tr("Internal Id"));
+
+    ui->kanjiTable->setColumnCount(3);
+    ui->kanjiTable->setRowCount(0);
+    ui->kanjiTable->setHorizontalHeaderLabels(header);
+}
+
+void KanjiSelector::setCharsetList(const QList<Charset> &list)
 {
     int total = list.count();
     int i = 0;
 
+    qDebug() << "Building charset list";
+
     ui->charsetCombo->clear();
 
-    for (i = 0; (i < total); i++)
+    for (i = total - 1; (i >= 0); i--)
     {
         ui->charsetCombo->addItem(list.at(i).getName(), list.at(i).getId());
     }
@@ -41,6 +50,9 @@ void KanjiSelector::fillCharacterTable(const Charset &charset)
     int charCount = charList.count();
     int i = 0;
 
+    qDebug() << "Filling character table";
+
+    clear();
     ui->kanjiTable->setRowCount(charCount);
 
     for (i = 0; (i < charCount); i++)
@@ -61,6 +73,8 @@ QList<Character> KanjiSelector::getSelectedCharacters(void)
     QList<QTableWidgetItem*> items = ui->kanjiTable->selectedItems();
     QList<Character> result;
 
+    qDebug() << "Getting selected characters";
+
     int total = items.count();
     int i = 0;
 
@@ -78,9 +92,10 @@ QList<Character> KanjiSelector::getSelectedCharacters(void)
 void KanjiSelector::hideSelectedCharacters(void)
 {
     QList<QTableWidgetItem*> items = ui->kanjiTable->selectedItems();
-
     int total = items.count();
     int i = 0;
+
+    qDebug() << "Hiding selected characters";
 
     for (i = 0; (i < total); i++)
     {
@@ -91,8 +106,34 @@ void KanjiSelector::hideSelectedCharacters(void)
     }
 }
 
+void KanjiSelector::hideCharacters(const QList<Character> &characters)
+{
+    int charactersCount = characters.count();
+    int rowCount = ui->kanjiTable->rowCount();
+    int i = 0;
+    int j = 0;
+
+    for (i = 0; (i < charactersCount); i++)
+    {
+        const Character characterToHide = characters.at(i);
+
+        qDebug() << "Hiding character" << characters.at(i).getCharacter();
+
+        for (j = 0; (j < rowCount); j++)
+        {
+            if (ui->kanjiTable->item(j, KANJISELECTOR_ID_ROW)->text().toInt() == characterToHide.getId())
+            {
+                ui->kanjiTable->hideRow(j);
+                break;
+            }
+        }
+    }
+}
+
 void KanjiSelector::on_charsetCombo_currentIndexChanged(int index)
 {
+    qDebug() << "Selected charset changed";
+
     if (index < 0)
     {
         return;
@@ -100,4 +141,5 @@ void KanjiSelector::on_charsetCombo_currentIndexChanged(int index)
 
     int charsetId = ui->charsetCombo->itemData(index).toInt();
     fillCharacterTable(DatabaseManager::getCharset(charsetId));
+    emit charsetChanged();
 }

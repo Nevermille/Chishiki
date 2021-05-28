@@ -36,6 +36,8 @@ void CharacterChooser::resetUi(void)
 {
     QList<Charset> list;
 
+    qDebug() << "Building characterchooser UI";
+
     switch (listMode)
     {
         case KanaList:
@@ -54,6 +56,9 @@ void CharacterChooser::resetUi(void)
 void CharacterChooser::on_addOneCharButton_clicked()
 {
     QList<Character> selectedCharacters = ui->kanjiSelector->getSelectedCharacters();
+
+    qDebug() << "Adding characters";
+
     ui->kanjiSelector->hideSelectedCharacters();
     addToSelectedList(selectedCharacters);
 }
@@ -65,6 +70,8 @@ void CharacterChooser::addToSelectedList(const QList<Character> &characters)
 
     for (i = 0; (i < total); i++)
     {
+        qDebug() << "Selecting character" << characters.at(i).getId();
+
         int currentRowId = ui->selectedList->rowCount();
         QTableWidgetItem* characterItem = new QTableWidgetItem();
         characterItem->setText(characters.at(i).getCharacter());
@@ -77,3 +84,26 @@ void CharacterChooser::addToSelectedList(const QList<Character> &characters)
         ui->selectedList->setItem(currentRowId, CHARACTERCHOOSER_ID_ROW, idItem);
     }
 }
+
+QList<Character> CharacterChooser::getChoosenCharacters(void)
+{
+    QList<Character> result;
+    int rowCount = ui->selectedList->rowCount();
+    int i = 0;
+
+    qDebug() << "Getting choosen characters list";
+
+    for (i = 0; (i < rowCount); i++)
+    {
+        QTableWidgetItem *item = ui->selectedList->item(i, CHARACTERCHOOSER_ID_ROW);
+        result.append(DatabaseManager::getCharacter(item->text().toInt()));
+    }
+
+    return result;
+}
+
+void CharacterChooser::on_kanjiSelector_charsetChanged()
+{
+    ui->kanjiSelector->hideCharacters(getChoosenCharacters());
+}
+

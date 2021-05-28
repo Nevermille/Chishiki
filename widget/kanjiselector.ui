@@ -37,4 +37,7 @@
  </widget>
  <resources/>
  <connections/>
+ <slots>
+  <signal>charsetChanged()</signal>
+ </slots>
 </ui>
