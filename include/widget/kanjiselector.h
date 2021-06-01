@@ -23,6 +23,9 @@ class KanjiSelector : public QWidget
         void setCharsetList(const QList<Charset> &list);
         void hideSelectedCharacters(void);
         void hideCharacters(const QList<Character> &list);
+        void unhideCharacters(const QList<Character> &list);
+        void selectAllCharacters(void);
+        void unselect(void);
         QList<Character> getSelectedCharacters(void);
 
     signals:

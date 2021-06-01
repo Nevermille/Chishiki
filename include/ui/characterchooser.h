@@ -38,8 +38,12 @@ class CharacterChooser : public QWidget
 
     private slots:
         void on_addOneCharButton_clicked();
-
         void on_kanjiSelector_charsetChanged();
+        void on_addAllCharssButton_clicked();
+
+        void on_removeOneCharButton_clicked();
+
+        void on_removeAllCharsButton_clicked();
 
 private:
         Ui::CharacterChooser *ui;

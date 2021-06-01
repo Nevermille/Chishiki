@@ -107,3 +107,36 @@ void CharacterChooser::on_kanjiSelector_charsetChanged()
     ui->kanjiSelector->hideCharacters(getChoosenCharacters());
 }
 
+void CharacterChooser::on_addAllCharssButton_clicked()
+{
+    ui->kanjiSelector->selectAllCharacters();
+    on_addOneCharButton_clicked();
+    ui->kanjiSelector->unselect();
+}
+
+void CharacterChooser::on_removeOneCharButton_clicked()
+{
+    QList<QTableWidgetItem*> selectedItems = ui->selectedList->selectedItems();
+    QList<Character> selectedCharacters;
+    int totalItems = selectedItems.count();
+    int i = 0;
+
+    for (i = 0; (i < totalItems); i++)
+    {
+        if (selectedItems.at(i)->column() == CHARACTERCHOOSER_ID_ROW)
+        {
+            selectedCharacters.append(DatabaseManager::getCharacter(selectedItems.at(i)->text().toInt()));
+            ui->selectedList->removeRow(selectedItems.at(i)->row());
+        }
+    }
+
+    ui->kanjiSelector->unhideCharacters(selectedCharacters);
+}
+
+void CharacterChooser::on_removeAllCharsButton_clicked()
+{
+    ui->selectedList->selectAll();
+    on_removeOneCharButton_clicked();
+    ui->selectedList->clearSelection();
+}
+
