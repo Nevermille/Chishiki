@@ -168,6 +168,18 @@ void KanjiSelector::on_charsetCombo_currentIndexChanged(int index)
     emit charsetChanged();
 }
 
+void KanjiSelector::allowMultipleSelects(bool val)
+{
+    if (val)
+    {
+        ui->kanjiTable->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    }
+    else
+    {
+        ui->kanjiTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    }
+}
+
 void KanjiSelector::selectAllCharacters(void)
 {
     ui->kanjiTable->selectAll();
@@ -177,3 +189,24 @@ void KanjiSelector::unselect(void)
 {
     ui->kanjiTable->clearSelection();
 }
+
+void KanjiSelector::on_kanjiTable_currentCellChanged(int currentRow, int currentColumn, int previousRow, int previousColumn)
+{
+    (void) currentRow;
+    (void) currentColumn;
+    (void) previousRow;
+    (void) previousColumn;
+
+    emit characterSelected();
+}
+
+
+void KanjiSelector::on_kanjiTable_cellClicked(int row, int column)
+{
+    (void) row;
+    (void) column;
+
+    emit
+    characterSelected();
+}
+

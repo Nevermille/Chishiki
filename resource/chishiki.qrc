@@ -31,5 +31,6 @@
         <file>images/glyph/settings-white.svg</file>
         <file>images/glyph/test-grey.svg</file>
         <file>images/glyph/test-white.svg</file>
+        <file>fonts/KSO.ttf</file>
     </qresource>
 </RCC>

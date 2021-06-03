@@ -20,6 +20,7 @@ SOURCES += \
     src/ui/home.cpp \
     src/ui/kanatest.cpp \
     src/ui/kanjitest.cpp \
+    src/ui/library.cpp \
     src/ui/mainwindow.cpp \
     src/widget/kanjiselector.cpp \
     src/widget/kanjiviewer.cpp
@@ -37,6 +38,7 @@ HEADERS += \
     include/ui/home.h \
     include/ui/kanatest.h \
     include/ui/kanjitest.h \
+    include/ui/library.h \
     include/ui/mainwindow.h \
     include/widget/kanjiselector.h \
     include/widget/kanjiviewer.h
@@ -47,6 +49,7 @@ FORMS += \
     ui/home.ui \
     ui/kanatest.ui \
     ui/kanjitest.ui \
+    ui/library.ui \
     ui/mainwindow.ui \
     widget/kanjiselector.ui \
     widget/kanjiviewer.ui

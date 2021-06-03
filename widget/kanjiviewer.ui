@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>204</width>
+    <width>209</width>
     <height>391</height>
    </rect>
   </property>
@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="kanji">
      <property name="font">
       <font>
        <pointsize>100</pointsize>
@@ -60,13 +60,19 @@
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
       <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Onyomi</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="onyomiLabel">
        <property name="text">
         <string notr="true">&lt;Waiting for update&gt;</string>
        </property>
@@ -74,13 +80,19 @@
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Kunyomi</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="kunyomiLabel">
        <property name="text">
         <string notr="true">&lt;Waiting for update&gt;</string>
        </property>
@@ -88,13 +100,19 @@
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Meaning</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="meaningLabel">
        <property name="text">
         <string notr="true">&lt;Waiting for update&gt;</string>
        </property>
@@ -129,13 +147,19 @@
     <layout class="QFormLayout" name="formLayout_2">
      <item row="0" column="0">
       <widget class="QLabel" name="label_10">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>JLPT</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="jlptLabel">
        <property name="text">
         <string notr="true">&lt;Waiting for update&gt;</string>
        </property>
@@ -143,13 +167,19 @@
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_12">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Kanken</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLabel" name="label_13">
+      <widget class="QLabel" name="kankenLabel">
        <property name="text">
         <string notr="true">&lt;Waiting for update&gt;</string>
        </property>

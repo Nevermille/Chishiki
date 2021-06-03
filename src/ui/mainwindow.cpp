@@ -78,7 +78,13 @@ void MainWindow::on_learnButton_clicked()
 
 void MainWindow::on_libraryButton_clicked()
 {
+    Library* l = dynamic_cast<Library*>(ui->uiStack->widget(LIBRARY_PAGE));
+
     checkNavbarItem(ui->libraryButton);
+
+    l->resetUi();
+
+    ui->uiStack->setCurrentIndex(LIBRARY_PAGE);
 }
 
 

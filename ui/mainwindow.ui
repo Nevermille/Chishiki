@@ -258,6 +258,7 @@
         </property>
         <widget class="Home" name="home"/>
         <widget class="CharacterChooser" name="characterchooser"/>
+        <widget class="Library" name="library"/>
        </widget>
       </item>
      </layout>
@@ -299,6 +300,12 @@
    <slots>
     <signal>returnToHome()</signal>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>Library</class>
+   <extends>QWidget</extends>
+   <header>include/ui/library.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

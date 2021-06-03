@@ -9,6 +9,7 @@ QT_END_NAMESPACE
 
 #define HOME_PAGE 0
 #define CHARACTER_CHOOSER_PAGE 1
+#define LIBRARY_PAGE 2
 
 class MainWindow : public QMainWindow
 {

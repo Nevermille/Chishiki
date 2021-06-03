@@ -39,5 +39,6 @@
  <connections/>
  <slots>
   <signal>charsetChanged()</signal>
+  <signal>characterSelected()</signal>
  </slots>
 </ui>

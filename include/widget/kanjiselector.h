@@ -26,15 +26,20 @@ class KanjiSelector : public QWidget
         void unhideCharacters(const QList<Character> &list);
         void selectAllCharacters(void);
         void unselect(void);
+        void allowMultipleSelects(bool val);
         QList<Character> getSelectedCharacters(void);
 
     signals:
         void charsetChanged(void);
+        void characterSelected(void);
 
     private slots:
         void on_charsetCombo_currentIndexChanged(int index);
+        void on_kanjiTable_currentCellChanged(int currentRow, int currentColumn, int previousRow, int previousColumn);
 
-    private:
+        void on_kanjiTable_cellClicked(int row, int column);
+
+private:
         Ui::KanjiSelector *ui;
         void fillCharacterTable(const Charset &charset);
         void clear();
